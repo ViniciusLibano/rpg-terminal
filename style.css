@@ -1,0 +1,104 @@
+:root {
+    --background: #0f0f0f;
+    --contrast-white: #f0f0f0;
+    --contrast-red: #cc0000;
+    --contrast-green: #00cc00;
+    --contrast-blue: #678aff;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border: 1px solid var(--contrast-white);
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--contrast-white);
+}
+
+::selection {
+    background: var(--contrast-white);
+    color: var(--background);
+}
+
+:focus {
+    outline: none;
+}
+
+.color-red {
+    color: var(--contrast-red);
+}
+
+.color-red::selection {
+    background: var(--contrast-red);
+    color: var(--background);
+}
+
+.color-green {
+    color: var(--contrast-green);
+}
+
+.color-green::selection {
+    background: var(--contrast-green);
+    color: var(--background);
+}
+
+.color-blue {
+    color: var(--contrast-blue);
+}
+
+.color-blue::selection {
+    background: var(--contrast-blue);
+    color: var(--background);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Consolas';
+    font-weight: bold;
+    color: var(--contrast-white);
+    background: var(--background);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.terminal {
+    width: 800px;
+    height: 500px;
+    padding: 5px;
+
+    display: grid;
+    grid-template-rows: auto 30px;
+
+    border: 2px solid var(--contrast-white);
+    border-radius: 5px;
+}
+
+.output {
+    padding: 10px;
+    overflow: auto;
+}
+
+.input {
+    display: grid;
+    grid-template-columns: 30px auto;
+}
+
+.input label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input input {
+    padding-left: 5px;
+    border: none;
+}
