@@ -13,7 +13,7 @@ printLine = (message) => {
 }
 
 renderContent = (content) => {
-    output.insertAdjacentHTML('beforeend', `<div>${content}</div>`);
+    output.insertAdjacentHTML('beforeend', `${content}`);
 }
 
 horizontalLine = () => {
@@ -44,7 +44,7 @@ class terminalFile {
 
 const files = [
     morte = new terminalFile('teste.txt', '', 'arquivo teste'),
-    emerg_com = new terminalFile('reflexao.txt', '333', '<p>Não devemos temer a Morte, mas sim a vida. O que dói não é estar morto, mas sim morrer. O sofrimento é sinônimo de Vida enquanto a Morte, apenas a ausência de tudo pode nos conceder. Não temo a Morte, mas temo como posso morrer, como irei viver esse momento de transição. Toda preocupação está na Vida, todo sofrimento está na Vida, toda paz, toda alegria. A vida são os sentimentos, são memórias. Então, pensar na Morte como algo ruim não é lógico para mim. Ela é inevitável, afinal, então minha opção é apenas aceitar e aproveitar enquanto a chama arde.</p>'),
+    emerg_com = new terminalFile('reflexao.txt', '333', '<div><p>Não devemos temer a Morte, mas sim a vida. O que dói não é estar morto, mas sim morrer. O sofrimento é sinônimo de Vida enquanto a Morte, apenas a ausência de tudo pode nos conceder. Não temo a Morte, mas temo como posso morrer, como irei viver esse momento de transição. Toda preocupação está na Vida, todo sofrimento está na Vida, toda paz, toda alegria. A vida são os sentimentos, são memórias. Então, pensar na Morte como algo ruim não é lógico para mim. Ela é inevitável, afinal, então minha opção é apenas aceitar e aproveitar enquanto a chama arde.</p></div>'),
 ]
 
 findFileIndex = (fileName) => {
@@ -62,10 +62,17 @@ const commands = {
         if (args[0].length > 0) {
             printLine(errMessage());
         } else {
-            printLine(`<span class="color-blue">${files.length}</span> arquivos dispovíveis:`)
+            printLine(`<span class="color-blue">${files.length}</span> arquivos dispovíveis:`);
+            horizontalLine();
+            renderContent('<ul id="dir"></ul>');
             files.forEach(file => {
-                printLine(file.obs ? `${file.name} <span class="color-red">${file.obs}</span>` : file.name);
-            });   
+                document
+                    .getElementById('dir')
+                        .insertAdjacentHTML(
+                            "beforeend",
+                            file.obs ? `<li>${file.name} <span class="color-red">${file.obs}</span></li>` : `<li>${file.name}</li>`
+                        );
+            });
         }
     },
     openf: (...args) => {

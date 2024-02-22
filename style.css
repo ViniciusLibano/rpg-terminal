@@ -92,6 +92,19 @@ hr {
     overflow: auto;
 }
 
+.output ul {
+    list-style-type: square;
+}
+
+.output li {
+    margin-left: 37px;
+}
+
+
+.output li::marker {
+    color: inherit;
+}
+
 .input {
     display: grid;
     grid-template-columns: 30px auto;
