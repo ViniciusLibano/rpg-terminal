@@ -16,6 +16,10 @@ renderContent = (content) => {
     output.insertAdjacentHTML('beforeend', `<div>${content}</div>`);
 }
 
+horizontalLine = () => {
+    output.insertAdjacentHTML('beforeend', `<hr>`);
+}
+
 clearConsole = () => {
     output.innerHTML = '';
 }
@@ -78,7 +82,8 @@ const commands = {
 
             if (sFile.name == rFile.name && sFile.pass == rFile.pass) {
                 printLine('<span class="color-green">Arquivo aberto com sucesso</span>');
-                printLine(`Arquivo: <span class="color-blue">${rFile.name}</span>`);
+                printLine(`<span class="color-blue">${rFile.name}</span>`);
+                horizontalLine();
                 renderContent(rFile.cont);
                 return;
             }

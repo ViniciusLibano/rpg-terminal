@@ -70,6 +70,11 @@ body {
     align-items: center;
 }
 
+hr {
+    margin: 10px 0;
+    border: 1px dashed;
+}
+
 .terminal {
     width: 800px;
     height: 500px;
@@ -96,6 +101,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
 .input input {
