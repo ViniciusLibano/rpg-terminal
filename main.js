@@ -12,6 +12,10 @@ printLine = (message) => {
     output.insertAdjacentHTML('beforeend', element)
 }
 
+renderContent = (content) => {
+    output.insertAdjacentHTML('beforeend', `<div>${content}</div>`);
+}
+
 clearConsole = () => {
     output.innerHTML = '';
 }
@@ -36,7 +40,7 @@ class terminalFile {
 
 const files = [
     morte = new terminalFile('teste.txt', '', 'arquivo teste'),
-    emerg_com = new terminalFile('reflexao.txt', '333', 'Não devemos temer a Morte, mas sim a vida. O que dói não é estar morto, mas sim morrer. O sofrimento é sinônimo de Vida enquanto a Morte, apenas a ausência de tudo pode nos conceder. Não temo a Morte, mas temo como posso morrer, como irei viver esse momento de transição. Toda preocupação está na Vida, todo sofrimento está na Vida, toda paz, toda alegria. A vida são os sentimentos, são memórias. Então, pensar na Morte como algo ruim não é lógico para mim. Ela é inevitável, afinal, então minha opção é apenas aceitar e aproveitar enquanto a chama arde.'),
+    emerg_com = new terminalFile('reflexao.txt', '333', '<p>Não devemos temer a Morte, mas sim a vida. O que dói não é estar morto, mas sim morrer. O sofrimento é sinônimo de Vida enquanto a Morte, apenas a ausência de tudo pode nos conceder. Não temo a Morte, mas temo como posso morrer, como irei viver esse momento de transição. Toda preocupação está na Vida, todo sofrimento está na Vida, toda paz, toda alegria. A vida são os sentimentos, são memórias. Então, pensar na Morte como algo ruim não é lógico para mim. Ela é inevitável, afinal, então minha opção é apenas aceitar e aproveitar enquanto a chama arde.</p>'),
 ]
 
 findFileIndex = (fileName) => {
@@ -75,7 +79,7 @@ const commands = {
             if (sFile.name == rFile.name && sFile.pass == rFile.pass) {
                 printLine('<span class="color-green">Arquivo aberto com sucesso</span>');
                 printLine(`Arquivo: <span class="color-blue">${rFile.name}</span>`);
-                printLine(rFile.cont);
+                renderContent(rFile.cont);
                 return;
             }
 
